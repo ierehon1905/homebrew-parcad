@@ -12,9 +12,9 @@
 class Parcad < Formula
   desc "Parametric CAD you write as code, with an MCP server for the model that writes it"
   homepage "https://github.com/ierehon1905/parcad"
-  version "0.0.4"
+  version "0.0.5"
   url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-aarch64-apple-darwin.tar.gz"
-  sha256 "20e61323d99d11b2ae3ebd9a490267792110f939730c3e7ce247ec15dc6fa135"
+  sha256 "4b9884ae036812b55fdbdab1640a4b42ed28d2cf6961eb5cf19a2f3defa38f6c"
   # The Rust crates are MIT or Apache-2.0; the statically linked OpenCASCADE
   # inside the worker is LGPL-2.1 with its exception. The texts are installed
   # beside the binaries, and NOTICE.md says how to relink your own OCCT.
