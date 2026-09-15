@@ -10,7 +10,7 @@
 # B-rep worker, the seed parts and the licence texts. Nothing here is built from
 # source — a cold OpenCASCADE compile is not something to ask of an install.
 class Parcad < Formula
-  desc "Parametric CAD you write as code, with an MCP server for the model that writes it"
+  desc "Parametric CAD you write as code, with an MCP server for agents"
   homepage "https://github.com/ierehon1905/parcad"
   version "0.0.6"
   # The Rust crates are MIT or Apache-2.0; the statically linked OpenCASCADE
@@ -19,15 +19,20 @@ class Parcad < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   # One build per platform: Apple silicon, and x86_64 Linux on Homebrew on Linux.
+  # `url` may not sit directly in an on_* block, so each sits behind its CPU.
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-aarch64-apple-darwin.tar.gz"
-    sha256 "bc3520b45173b4596c4d085ad1a06dce16a919df578c841e48885d8b2acb4a63"
+    if Hardware::CPU.arm?
+      url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "bc3520b45173b4596c4d085ad1a06dce16a919df578c841e48885d8b2acb4a63"
+    end
   end
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "f2393dac8b1527d2ea3a0881e2951bc0542cf7b27a9cb80b84096f4ac91e805f"
+    if Hardware::CPU.intel?
+      url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f2393dac8b1527d2ea3a0881e2951bc0542cf7b27a9cb80b84096f4ac91e805f"
+    end
   end
 
   def install
