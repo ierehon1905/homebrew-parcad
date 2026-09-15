@@ -12,7 +12,6 @@
 class Parcad < Formula
   desc "Parametric CAD you write as code, with an MCP server for agents"
   homepage "https://github.com/ierehon1905/parcad"
-  version "0.0.6"
   # The Rust crates are MIT or Apache-2.0; the statically linked OpenCASCADE
   # inside the worker is LGPL-2.1 with its exception. The texts are installed
   # beside the binaries, and NOTICE.md says how to relink your own OCCT.
@@ -23,14 +22,14 @@ class Parcad < Formula
   on_macos do
     depends_on arch: :arm64
     if Hardware::CPU.arm?
-      url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-aarch64-apple-darwin.tar.gz"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.6/parcad-cli-aarch64-apple-darwin.tar.gz"
       sha256 "bc3520b45173b4596c4d085ad1a06dce16a919df578c841e48885d8b2acb4a63"
     end
   end
   on_linux do
     depends_on arch: :x86_64
     if Hardware::CPU.intel?
-      url "https://github.com/ierehon1905/parcad/releases/download/v#{version}/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.6/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "f2393dac8b1527d2ea3a0881e2951bc0542cf7b27a9cb80b84096f4ac91e805f"
     end
   end
