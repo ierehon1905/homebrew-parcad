@@ -38,11 +38,11 @@ class Parcad < Formula
     # Both binaries in libexec: the host finds its worker beside itself, and
     # the env script below names it explicitly as well.
     libexec.install "parcad", "parcad-occt-worker"
-    (share/"parcad").install "examples"
+    pkgshare.install "examples"
     doc.install Dir["licenses/*"]
     (bin/"parcad").write_env_script libexec/"parcad",
       PARCAD_OCCT_WORKER: libexec/"parcad-occt-worker",
-      PARCAD_SEED_DIR:    share/"parcad/examples"
+      PARCAD_SEED_DIR:    pkgshare/"examples"
   end
 
   # `brew services start parcad`: the UI on http://127.0.0.1:4242 and MCP on
