@@ -22,15 +22,15 @@ class Parcad < Formula
   on_macos do
     depends_on arch: :arm64
     if Hardware::CPU.arm?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.6/parcad-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "bc3520b45173b4596c4d085ad1a06dce16a919df578c841e48885d8b2acb4a63"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.7/parcad-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "3415a17c36b76a4c48c9a0183456cb5b26f8c0fb8cf0ed1627a2c517eb5a6a2a"
     end
   end
   on_linux do
     depends_on arch: :x86_64
     if Hardware::CPU.intel?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.6/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f2393dac8b1527d2ea3a0881e2951bc0542cf7b27a9cb80b84096f4ac91e805f"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.7/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "9fbbd33d2d27315fc985d923ebdfdf028f616c3111362900c2a1c37fb484356c"
     end
   end
 
@@ -57,11 +57,11 @@ class Parcad < Formula
 
   def caveats
     <<~EOS
-      Run the host at login, then open http://127.0.0.1:4242 — the whole app
-      is there, and an agent's MCP endpoint is http://127.0.0.1:4242/mcp:
-        brew services start parcad
-      Or just once, in this terminal:
-        parcad serve
+      Give it to an agent, which starts parcad when it needs it:
+        claude mcp add parcad -- parcad mcp
+      Or use the app yourself: run `parcad serve`, then open http://127.0.0.1:4242.
+      A client that connects by URL (http://127.0.0.1:4242/mcp) needs a host
+      already up; `brew services start parcad` keeps one up from login.
       Parts are saved in ~/Documents/parcad. Set PARCAD_PROJECTS_DIR to move them.
     EOS
   end
