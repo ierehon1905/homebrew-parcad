@@ -12,25 +12,25 @@
 class Parcad < Formula
   desc "Parametric CAD you write as code, with an MCP server for agents"
   homepage "https://github.com/ierehon1905/parcad"
-  # The Rust crates are MIT or Apache-2.0; the statically linked OpenCASCADE
+  # The Rust crates are AGPL-3.0-or-later; the statically linked OpenCASCADE
   # inside the worker is LGPL-2.1 with its exception. The texts are installed
   # beside the binaries, and NOTICE.md says how to relink your own OCCT.
-  license any_of: ["MIT", "Apache-2.0"]
+  license "AGPL-3.0-or-later"
 
   # One build per platform: Apple silicon, and x86_64 Linux on Homebrew on Linux.
   # `url` may not sit directly in an on_* block, so each sits behind its CPU.
   on_macos do
     depends_on arch: :arm64
     if Hardware::CPU.arm?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.9/parcad-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "626cbc69e670853e216da6d62cc71bd2240edafb2ba11575b695b36cd084b183"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.11/parcad-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "27424be03d0f33a227957ca3f9d86c9700a78f34375c5a6fafababb7cb7d10ef"
     end
   end
   on_linux do
     depends_on arch: :x86_64
     if Hardware::CPU.intel?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.9/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c5415fda03498af039d8182c12b1e1e1129915fdbcaa03e510707f3605da614f"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.11/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f038a4538976007d2f137f06c73d5365371c73e7168d1ec2f974b90a43ead585"
     end
   end
 
@@ -46,7 +46,7 @@ class Parcad < Formula
   end
 
   # `brew services start parcad`: the UI on http://127.0.0.1:4242 and MCP on
-  # /mcp, up at login. Parts live in ~/Documents/parcad, as they do for the
+  # /mcp, up at login. Parts live in ~/Library/Application Support/parcad, as they do for the
   # app; PARCAD_PROJECTS_DIR moves them.
   service do
     run [opt_bin/"parcad", "serve"]
@@ -62,7 +62,7 @@ class Parcad < Formula
       Or use the app yourself: run `parcad serve`, then open http://127.0.0.1:4242.
       A client that connects by URL (http://127.0.0.1:4242/mcp) needs a host
       already up; `brew services start parcad` keeps one up from login.
-      Parts are saved in ~/Documents/parcad. Set PARCAD_PROJECTS_DIR to move them.
+      Parts are saved in ~/Library/Application Support/parcad. Set PARCAD_PROJECTS_DIR to move them.
     EOS
   end
 
