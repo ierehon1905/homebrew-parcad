@@ -3,8 +3,8 @@
 # as Formula/parcad.rb by .github/workflows/publish.yml. It replaced a cask on
 # 2026-09-14: a cask installs a window, and what a Homebrew user of this wants
 # is the host — MCP up at login, the UI in a browser — which `parcad serve` is.
-# A formula is also never quarantined, so the `xattr` step the .app needs does
-# not exist on this path.
+# A formula is also never quarantined, so Gatekeeper is not consulted on this
+# path at all.
 #
 # The archives are the ones .github/workflows/release.yml stages: `parcad`, its
 # B-rep worker, the seed parts and the licence texts. Nothing here is built from
@@ -22,15 +22,15 @@ class Parcad < Formula
   on_macos do
     depends_on arch: :arm64
     if Hardware::CPU.arm?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.11/parcad-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "27424be03d0f33a227957ca3f9d86c9700a78f34375c5a6fafababb7cb7d10ef"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.12/parcad-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "85af1ed6eec6065f51c537bc75381b669b0b7fbc5de1fec6c3e091dfdb746f0a"
     end
   end
   on_linux do
     depends_on arch: :x86_64
     if Hardware::CPU.intel?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.11/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f038a4538976007d2f137f06c73d5365371c73e7168d1ec2f974b90a43ead585"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.12/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "514e3a19e33da73e6035bf092be3482fba82788526f85f8095bcbd33e253cf07"
     end
   end
 
