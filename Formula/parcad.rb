@@ -22,15 +22,15 @@ class Parcad < Formula
   on_macos do
     depends_on arch: :arm64
     if Hardware::CPU.arm?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.13/parcad-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "8218348b4fe38a4185d159de2e358c8dab6a5f1e8fe0c49ee168fa5e2d90be2a"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.14/parcad-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "5a7be205d1b9c3710b32d9b26254e43d8e756409cdb0e9310922c78db656fd13"
     end
   end
   on_linux do
     depends_on arch: :x86_64
     if Hardware::CPU.intel?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.13/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "b32eb9a4ea94d20e400c0146158e78a8f1b17954b896edfcbd94602953ee747b"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.14/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "4c8f8eb3fb8111a66bc1de53c2efae0eaf44efcb522e29a8be4edd6e07ad7097"
     end
   end
 
