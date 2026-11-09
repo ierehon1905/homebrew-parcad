@@ -11,7 +11,7 @@
 # source — a cold OpenCASCADE compile is not something to ask of an install.
 class Parcad < Formula
   desc "Parametric CAD you write as code, with an MCP server for agents"
-  homepage "https://github.com/ierehon1905/parcad"
+  homepage "https://parcad.dev"
   # The Rust crates are AGPL-3.0-or-later; the statically linked OpenCASCADE
   # inside the worker is LGPL-2.1 with its exception. The texts are installed
   # beside the binaries, and NOTICE.md says how to relink your own OCCT.
@@ -22,15 +22,15 @@ class Parcad < Formula
   on_macos do
     depends_on arch: :arm64
     if Hardware::CPU.arm?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.16/parcad-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "5528cfd0b84773f1eb97145f34a166c49181fede9602055b83c6763b767f39e8"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.18/parcad-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "aff6c579f5a3c7255d038c99c0fba60f27af6f3a1f21a25735bd7dc0a54d29a9"
     end
   end
   on_linux do
     depends_on arch: :x86_64
     if Hardware::CPU.intel?
-      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.16/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3d709fd48b9822f1a26013dfa18990c98121f2683c5bfcce7d3571e05c29e3f9"
+      url "https://github.com/ierehon1905/parcad/releases/download/v0.0.18/parcad-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "1608f40422bb06b557a75b8e696df69de99417128fa30172303f903e92e64998"
     end
   end
 
